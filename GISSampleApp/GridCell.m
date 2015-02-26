@@ -7,6 +7,7 @@
 //
 
 #import "GridCell.h"
+#import "GISResponseObject.h"
 #import "UIImageView+AFNetworking.h"
 
 
@@ -20,7 +21,7 @@
 - (void)setObject:(GISResponseObject *)object
 {
     _object = object;
-    if (object.URLString) {
+    if (object.thumbURLString) {
         NSURL *URL = [NSURL URLWithString:object.thumbURLString];
         [self.imageView setImageWithURL:URL];
     }

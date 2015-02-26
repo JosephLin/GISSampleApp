@@ -19,6 +19,7 @@
 		7CE9DB871A9ECA4A00C1D7FE /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB861A9ECA4A00C1D7FE /* GridCell.m */; };
 		7CE9DB8A1A9ECABC00C1D7FE /* GISResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB891A9ECABC00C1D7FE /* GISResponseObject.m */; };
 		7CE9DB8D1A9ED19600C1D7FE /* NSDictionary+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB8C1A9ED19600C1D7FE /* NSDictionary+Validation.m */; };
+		7CE9DB901A9ED77700C1D7FE /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB8F1A9ED77700C1D7FE /* DetailViewController.m */; };
 		A1FB2AFDBEDF708E1787C670 /* libPods-GISSampleApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD03145E7EFD65A6FE4561AA /* libPods-GISSampleApp.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,8 @@
 		7CE9DB891A9ECABC00C1D7FE /* GISResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GISResponseObject.m; sourceTree = "<group>"; };
 		7CE9DB8B1A9ED19600C1D7FE /* NSDictionary+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Validation.h"; sourceTree = "<group>"; };
 		7CE9DB8C1A9ED19600C1D7FE /* NSDictionary+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Validation.m"; sourceTree = "<group>"; };
+		7CE9DB8E1A9ED77700C1D7FE /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		7CE9DB8F1A9ED77700C1D7FE /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		DD03145E7EFD65A6FE4561AA /* libPods-GISSampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GISSampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,6 +128,8 @@
 				7CE9DB631A9EBADB00C1D7FE /* Main.storyboard */,
 				7CE9DB601A9EBADB00C1D7FE /* MainViewController.h */,
 				7CE9DB611A9EBADB00C1D7FE /* MainViewController.m */,
+				7CE9DB8E1A9ED77700C1D7FE /* DetailViewController.h */,
+				7CE9DB8F1A9ED77700C1D7FE /* DetailViewController.m */,
 				7CE9DB851A9ECA4A00C1D7FE /* GridCell.h */,
 				7CE9DB861A9ECA4A00C1D7FE /* GridCell.m */,
 				7CE9DB821A9EC27900C1D7FE /* GISQueryObject.h */,
@@ -305,6 +310,7 @@
 			files = (
 				7CE9DB841A9EC27900C1D7FE /* GISQueryObject.m in Sources */,
 				7CE9DB8D1A9ED19600C1D7FE /* NSDictionary+Validation.m in Sources */,
+				7CE9DB901A9ED77700C1D7FE /* DetailViewController.m in Sources */,
 				7CE9DB8A1A9ECABC00C1D7FE /* GISResponseObject.m in Sources */,
 				7CE9DB871A9ECA4A00C1D7FE /* GridCell.m in Sources */,
 				7CE9DB621A9EBADB00C1D7FE /* MainViewController.m in Sources */,

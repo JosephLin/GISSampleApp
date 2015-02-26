@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "DetailViewController.h"
 #import "GISManager.h"
 #import "GISResponseObject.h"
 #import "GridCell.h"
@@ -54,9 +55,28 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    GISResponseObject *object = self.responseObjects[indexPath.row];
+    NSParameterAssert([object isKindOfClass:[GISResponseObject class]]);
+
     GridCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([GridCell class]) forIndexPath:indexPath];
-    cell.object = self.responseObjects[indexPath.row];
+    cell.object = object;
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+{
+    GISResponseObject *object = self.responseObjects[indexPath.row];
+    NSParameterAssert([object isKindOfClass:[GISResponseObject class]]);
+
+    [self performSegueWithIdentifier:@"DetailSegue" sender:object];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    DetailViewController *controller = segue.destinationViewController;
+    NSParameterAssert([controller isKindOfClass:[DetailViewController class]]);
+    
+    controller.object = sender;
 }
 
 @end

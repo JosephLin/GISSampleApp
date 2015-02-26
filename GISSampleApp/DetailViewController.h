@@ -1,5 +1,5 @@
 //
-//  GridCell.h
+//  DetailViewController.h
 //  GISSampleApp
 //
 //  Created by Joseph Lin on 2/25/15.
@@ -10,7 +10,7 @@
 @class GISResponseObject;
 
 
-@interface GridCell : UICollectionViewCell
+@interface DetailViewController : UIViewController
 
 @property (nonatomic, strong) GISResponseObject *object;
 
