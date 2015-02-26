@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		7CE9DB5C1A9EBADB00C1D7FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB5B1A9EBADB00C1D7FE /* main.m */; };
 		7CE9DB5F1A9EBADB00C1D7FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB5E1A9EBADB00C1D7FE /* AppDelegate.m */; };
-		7CE9DB621A9EBADB00C1D7FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB611A9EBADB00C1D7FE /* ViewController.m */; };
+		7CE9DB621A9EBADB00C1D7FE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB611A9EBADB00C1D7FE /* MainViewController.m */; };
 		7CE9DB651A9EBADB00C1D7FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9DB631A9EBADB00C1D7FE /* Main.storyboard */; };
 		7CE9DB671A9EBADB00C1D7FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9DB661A9EBADB00C1D7FE /* Images.xcassets */; };
 		7CE9DB6A1A9EBADB00C1D7FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9DB681A9EBADB00C1D7FE /* LaunchScreen.xib */; };
 		7CE9DB761A9EBADB00C1D7FE /* GISSampleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB751A9EBADB00C1D7FE /* GISSampleAppTests.m */; };
 		7CE9DB811A9EBFF300C1D7FE /* GISManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB801A9EBFF300C1D7FE /* GISManager.m */; };
+		7CE9DB841A9EC27900C1D7FE /* GISQueryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB831A9EC27900C1D7FE /* GISQueryObject.m */; };
+		7CE9DB871A9ECA4A00C1D7FE /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB861A9ECA4A00C1D7FE /* GridCell.m */; };
+		7CE9DB8A1A9ECABC00C1D7FE /* GISResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB891A9ECABC00C1D7FE /* GISResponseObject.m */; };
+		7CE9DB8D1A9ED19600C1D7FE /* NSDictionary+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB8C1A9ED19600C1D7FE /* NSDictionary+Validation.m */; };
 		A1FB2AFDBEDF708E1787C670 /* libPods-GISSampleApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD03145E7EFD65A6FE4561AA /* libPods-GISSampleApp.a */; };
 /* End PBXBuildFile section */
 
@@ -36,8 +40,8 @@
 		7CE9DB5B1A9EBADB00C1D7FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CE9DB5D1A9EBADB00C1D7FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CE9DB5E1A9EBADB00C1D7FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7CE9DB601A9EBADB00C1D7FE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7CE9DB611A9EBADB00C1D7FE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7CE9DB601A9EBADB00C1D7FE /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		7CE9DB611A9EBADB00C1D7FE /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		7CE9DB641A9EBADB00C1D7FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CE9DB661A9EBADB00C1D7FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7CE9DB691A9EBADB00C1D7FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -46,6 +50,14 @@
 		7CE9DB751A9EBADB00C1D7FE /* GISSampleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GISSampleAppTests.m; sourceTree = "<group>"; };
 		7CE9DB7F1A9EBFF300C1D7FE /* GISManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GISManager.h; sourceTree = "<group>"; };
 		7CE9DB801A9EBFF300C1D7FE /* GISManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GISManager.m; sourceTree = "<group>"; };
+		7CE9DB821A9EC27900C1D7FE /* GISQueryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GISQueryObject.h; sourceTree = "<group>"; };
+		7CE9DB831A9EC27900C1D7FE /* GISQueryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GISQueryObject.m; sourceTree = "<group>"; };
+		7CE9DB851A9ECA4A00C1D7FE /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCell.h; sourceTree = "<group>"; };
+		7CE9DB861A9ECA4A00C1D7FE /* GridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCell.m; sourceTree = "<group>"; };
+		7CE9DB881A9ECABC00C1D7FE /* GISResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GISResponseObject.h; sourceTree = "<group>"; };
+		7CE9DB891A9ECABC00C1D7FE /* GISResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GISResponseObject.m; sourceTree = "<group>"; };
+		7CE9DB8B1A9ED19600C1D7FE /* NSDictionary+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Validation.h"; sourceTree = "<group>"; };
+		7CE9DB8C1A9ED19600C1D7FE /* NSDictionary+Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Validation.m"; sourceTree = "<group>"; };
 		DD03145E7EFD65A6FE4561AA /* libPods-GISSampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GISSampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -110,11 +122,19 @@
 			children = (
 				7CE9DB5D1A9EBADB00C1D7FE /* AppDelegate.h */,
 				7CE9DB5E1A9EBADB00C1D7FE /* AppDelegate.m */,
-				7CE9DB601A9EBADB00C1D7FE /* ViewController.h */,
-				7CE9DB611A9EBADB00C1D7FE /* ViewController.m */,
+				7CE9DB631A9EBADB00C1D7FE /* Main.storyboard */,
+				7CE9DB601A9EBADB00C1D7FE /* MainViewController.h */,
+				7CE9DB611A9EBADB00C1D7FE /* MainViewController.m */,
+				7CE9DB851A9ECA4A00C1D7FE /* GridCell.h */,
+				7CE9DB861A9ECA4A00C1D7FE /* GridCell.m */,
+				7CE9DB821A9EC27900C1D7FE /* GISQueryObject.h */,
+				7CE9DB831A9EC27900C1D7FE /* GISQueryObject.m */,
+				7CE9DB881A9ECABC00C1D7FE /* GISResponseObject.h */,
+				7CE9DB891A9ECABC00C1D7FE /* GISResponseObject.m */,
 				7CE9DB7F1A9EBFF300C1D7FE /* GISManager.h */,
 				7CE9DB801A9EBFF300C1D7FE /* GISManager.m */,
-				7CE9DB631A9EBADB00C1D7FE /* Main.storyboard */,
+				7CE9DB8B1A9ED19600C1D7FE /* NSDictionary+Validation.h */,
+				7CE9DB8C1A9ED19600C1D7FE /* NSDictionary+Validation.m */,
 				7CE9DB661A9EBADB00C1D7FE /* Images.xcassets */,
 				7CE9DB681A9EBADB00C1D7FE /* LaunchScreen.xib */,
 				7CE9DB591A9EBADB00C1D7FE /* Supporting Files */,
@@ -283,7 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CE9DB621A9EBADB00C1D7FE /* ViewController.m in Sources */,
+				7CE9DB841A9EC27900C1D7FE /* GISQueryObject.m in Sources */,
+				7CE9DB8D1A9ED19600C1D7FE /* NSDictionary+Validation.m in Sources */,
+				7CE9DB8A1A9ECABC00C1D7FE /* GISResponseObject.m in Sources */,
+				7CE9DB871A9ECA4A00C1D7FE /* GridCell.m in Sources */,
+				7CE9DB621A9EBADB00C1D7FE /* MainViewController.m in Sources */,
 				7CE9DB811A9EBFF300C1D7FE /* GISManager.m in Sources */,
 				7CE9DB5F1A9EBADB00C1D7FE /* AppDelegate.m in Sources */,
 				7CE9DB5C1A9EBADB00C1D7FE /* main.m in Sources */,
