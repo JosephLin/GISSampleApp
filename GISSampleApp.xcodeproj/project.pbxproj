@@ -100,6 +100,42 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7C48658B1AA012D000250850 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7CE9DB7F1A9EBFF300C1D7FE /* GISManager.h */,
+				7CE9DB801A9EBFF300C1D7FE /* GISManager.m */,
+				7CE9DB821A9EC27900C1D7FE /* GISQueryObject.h */,
+				7CE9DB831A9EC27900C1D7FE /* GISQueryObject.m */,
+				7CE9DB881A9ECABC00C1D7FE /* GISResponseObject.h */,
+				7CE9DB891A9ECABC00C1D7FE /* GISResponseObject.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		7C48658C1AA012D600250850 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CE9DB631A9EBADB00C1D7FE /* Main.storyboard */,
+				7CE9DB601A9EBADB00C1D7FE /* MainViewController.h */,
+				7CE9DB611A9EBADB00C1D7FE /* MainViewController.m */,
+				7CE9DB8E1A9ED77700C1D7FE /* DetailViewController.h */,
+				7CE9DB8F1A9ED77700C1D7FE /* DetailViewController.m */,
+				7CE9DB851A9ECA4A00C1D7FE /* GridCell.h */,
+				7CE9DB861A9ECA4A00C1D7FE /* GridCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7C48658D1AA012DD00250850 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7CE9DB8B1A9ED19600C1D7FE /* NSDictionary+Validation.h */,
+				7CE9DB8C1A9ED19600C1D7FE /* NSDictionary+Validation.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		7CE9DB4D1A9EBADB00C1D7FE = {
 			isa = PBXGroup;
 			children = (
@@ -125,21 +161,9 @@
 			children = (
 				7CE9DB5D1A9EBADB00C1D7FE /* AppDelegate.h */,
 				7CE9DB5E1A9EBADB00C1D7FE /* AppDelegate.m */,
-				7CE9DB631A9EBADB00C1D7FE /* Main.storyboard */,
-				7CE9DB601A9EBADB00C1D7FE /* MainViewController.h */,
-				7CE9DB611A9EBADB00C1D7FE /* MainViewController.m */,
-				7CE9DB8E1A9ED77700C1D7FE /* DetailViewController.h */,
-				7CE9DB8F1A9ED77700C1D7FE /* DetailViewController.m */,
-				7CE9DB851A9ECA4A00C1D7FE /* GridCell.h */,
-				7CE9DB861A9ECA4A00C1D7FE /* GridCell.m */,
-				7CE9DB821A9EC27900C1D7FE /* GISQueryObject.h */,
-				7CE9DB831A9EC27900C1D7FE /* GISQueryObject.m */,
-				7CE9DB881A9ECABC00C1D7FE /* GISResponseObject.h */,
-				7CE9DB891A9ECABC00C1D7FE /* GISResponseObject.m */,
-				7CE9DB7F1A9EBFF300C1D7FE /* GISManager.h */,
-				7CE9DB801A9EBFF300C1D7FE /* GISManager.m */,
-				7CE9DB8B1A9ED19600C1D7FE /* NSDictionary+Validation.h */,
-				7CE9DB8C1A9ED19600C1D7FE /* NSDictionary+Validation.m */,
+				7C48658C1AA012D600250850 /* View */,
+				7C48658B1AA012D000250850 /* API */,
+				7C48658D1AA012DD00250850 /* Utilities */,
 				7CE9DB661A9EBADB00C1D7FE /* Images.xcassets */,
 				7CE9DB681A9EBADB00C1D7FE /* LaunchScreen.xib */,
 				7CE9DB591A9EBADB00C1D7FE /* Supporting Files */,

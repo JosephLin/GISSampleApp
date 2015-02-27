@@ -48,13 +48,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v9d-Ct-Ihy">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v9d-Ct-Ihy">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="v9d-Ct-Ihy" secondAttribute="bottom" id="0IF-f4-UW5"/>
+                                            <constraint firstItem="v9d-Ct-Ihy" firstAttribute="leading" secondItem="oIl-zr-kx3" secondAttribute="leading" id="Qv9-fR-71d"/>
+                                            <constraint firstItem="v9d-Ct-Ihy" firstAttribute="top" secondItem="oIl-zr-kx3" secondAttribute="top" id="h0i-3L-7f9"/>
+                                            <constraint firstAttribute="trailing" secondItem="v9d-Ct-Ihy" secondAttribute="trailing" id="iEW-RE-T0g"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="v9d-Ct-Ihy" id="ft8-XU-72t"/>
                                         </connections>

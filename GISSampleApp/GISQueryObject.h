@@ -25,7 +25,7 @@
 @property (nonatomic) NSString *safe;
 
 @property (nonatomic) NSString *perPage;
-@property (nonatomic) NSString *start;
+@property (nonatomic) NSString *offset;
 
 @property (nonatomic) NSString *userIP;
 

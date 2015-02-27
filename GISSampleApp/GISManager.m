@@ -44,11 +44,11 @@ static NSString * const GISBasePath = @"ajax/services/search/images";
     return _requestManager;
 }
 
-- (void)query:(GISQueryObject *)queryObject completion:(GISCompletionBlock)completion
+- (void)query:(GISQueryObject *)queryObject success:(GISAPISuccessBlock)success failure:(GISAPIFailureBlock)failure
 {
     if (!queryObject.query) {
         NSError *error = [NSError errorWithDomain:GISErrorDomain code:GISErrorCodeInvalidRequest userInfo:@{NSLocalizedDescriptionKey:@"Empty query"}];
-        if (completion) completion(NO, nil, error);
+        if (failure) failure(error);
         return;
     }
     
@@ -71,18 +71,20 @@ static NSString * const GISBasePath = @"ajax/services/search/images";
             NSDictionary *responseData = responseObject[@"responseData"];
             NSArray *results = responseData[@"results"];
             NSDictionary *cursor = responseData[@"cursor"];
+            NSString *resultCount = cursor[@"resultCount"];
+            NSString *currentPageIndex = cursor[@"currentPageIndex"];
             
             NSArray *objects = [GISResponseObject objectsWithArray:results];
-            if (completion) completion(YES, objects, nil);
+            if (success) success(resultCount.integerValue, currentPageIndex.integerValue, objects);
         }
         else {
             NSString *responseDetails = responseObject[@"responseDetails"];
             NSString *description = responseDetails ?: @"Unknown error";
             NSError *error = [NSError errorWithDomain:GISErrorDomain code:GISErrorCodeInvalidResponse userInfo:@{NSLocalizedDescriptionKey:description}];
-            if (completion) completion(NO, nil, error);
+            if (failure) failure(error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (completion) completion(NO, nil, error);
+        if (failure) failure(error);
     }];
 }
 

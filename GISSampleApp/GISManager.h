@@ -10,7 +10,8 @@
 
 @class GISQueryObject;
 
-typedef void(^GISCompletionBlock)(BOOL success, NSArray *objects, NSError *error);
+typedef void(^GISAPISuccessBlock)(NSInteger total, NSInteger currentPage, NSArray *objects);
+typedef void(^GISAPIFailureBlock)(NSError *error);
 
 extern NSString * const GISErrorDomain;
 typedef NS_ENUM(NSInteger, GISErrorCode) {
@@ -23,6 +24,6 @@ typedef NS_ENUM(NSInteger, GISErrorCode) {
 
 + (instancetype)sharedInstance;
 
-- (void)query:(GISQueryObject *)queryObject completion:(GISCompletionBlock)completion;
+- (void)query:(GISQueryObject *)queryObject success:(GISAPISuccessBlock)success failure:(GISAPIFailureBlock)failure;
 
 @end
