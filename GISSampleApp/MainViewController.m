@@ -55,8 +55,10 @@ static NSUInteger const kNumberOfColumns = 3;
     
     _currentQueryObject = currentQueryObject;
     
+    self.numberOfObjectsToLoad = 0;
     [self.responseObjects removeAllObjects];
     [self.collectionView reloadData];
+    self.collectionView.contentOffset = CGPointZero;
     [self checkNumberOfObjectsToLoad];
 }
 
