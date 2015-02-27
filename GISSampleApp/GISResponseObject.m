@@ -30,11 +30,11 @@
     object.contextURLString     = [dict objectForKey:@"originalContextUrl" expectedClass:[NSString class]];
     object.visibleURLString     = [dict objectForKey:@"visibleUrl" expectedClass:[NSString class]];
     
-    object.thumbURLString             = [dict objectForKey:@"tbUrl" expectedClass:[NSString class]];
+    object.thumbURLString       = [dict objectForKey:@"tbUrl" expectedClass:[NSString class]];
     object.thumbWidth           = [dict objectForKey:@"tbWidth" expectedClass:[NSString class]];
     object.thumbHeight          = [dict objectForKey:@"tbHeight" expectedClass:[NSString class]];
     
-    object.URLString                  = [dict objectForKey:@"url" expectedClass:[NSString class]];
+    object.URLString            = [dict objectForKey:@"url" expectedClass:[NSString class]];
     object.unescapedURLString   = [dict objectForKey:@"unescapedUrl" expectedClass:[NSString class]];
     object.width                = [dict objectForKey:@"width" expectedClass:[NSString class]];
     object.height               = [dict objectForKey:@"height" expectedClass:[NSString class]];

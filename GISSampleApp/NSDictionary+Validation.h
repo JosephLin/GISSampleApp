@@ -11,6 +11,9 @@
 
 @interface NSDictionary (Validation)
 
+/**
+ *  Returns nil if the object is not a kind of the expectedClass.
+ */
 - (id)objectForKey:(id)aKey expectedClass:(Class)expectedClass;
 
 @end

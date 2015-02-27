@@ -21,10 +21,19 @@ static NSUInteger const kNumberOfColumns = 3;
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) UITableView *tableView;
-@property (nonatomic)       NSMutableArray *responseObjects;
-@property (nonatomic)       NSMutableArray *queryHistory;
 @property (nonatomic)       GISQueryObject *currentQueryObject;
+/**
+ *  Number of objects needed to fill the current scroll view position.
+ */
 @property (nonatomic)       NSInteger numberOfObjectsToLoad;
+/**
+ *  An array of GISResponseObject.
+ */
+@property (nonatomic)       NSMutableArray *responseObjects;
+/**
+ *  An array of NSString.
+ */
+@property (nonatomic)       NSMutableArray *queryHistory;
 @end
 
 
@@ -55,9 +64,12 @@ static NSUInteger const kNumberOfColumns = 3;
     
     _currentQueryObject = currentQueryObject;
     
-    self.numberOfObjectsToLoad = 0;
+    // Reset colleciton view
     [self.responseObjects removeAllObjects];
     [self.collectionView reloadData];
+
+    // Reset flags
+    self.numberOfObjectsToLoad = 0;
     self.collectionView.contentOffset = CGPointZero;
     [self checkNumberOfObjectsToLoad];
 }
@@ -81,13 +93,21 @@ static NSUInteger const kNumberOfColumns = 3;
 
 - (void)performSearchIfNeeded
 {
-    NSInteger numberOfLoadedItems = self.responseObjects.count;
-    if (numberOfLoadedItems < self.numberOfObjectsToLoad) {
+    // 1. Check numberOfObjectsToLoad
+    NSInteger numberOfLoadedObjects = self.responseObjects.count;
+    if (numberOfLoadedObjects < self.numberOfObjectsToLoad) {
 
+        // 2. Check currentOffset.
+        // If currentOffset >= numberOfLoadedObjects, a query is already on the way
         NSInteger currentOffset = self.currentQueryObject.offset.integerValue;
-        if (currentOffset < numberOfLoadedItems && (self.currentQueryObject.maxOffset && numberOfLoadedItems <= self.currentQueryObject.maxOffset.integerValue)) {
-            self.currentQueryObject.offset = @(numberOfLoadedItems);
-            [self performSearch];
+        if (currentOffset < numberOfLoadedObjects) {
+            
+            // 3. Check maxOffset
+            if(!self.currentQueryObject.maxOffset || numberOfLoadedObjects <= self.currentQueryObject.maxOffset.integerValue) {
+                
+                self.currentQueryObject.offset = @(numberOfLoadedObjects);
+                [self performSearch];
+            }
         }
     }
 }
@@ -101,10 +121,14 @@ static NSUInteger const kNumberOfColumns = 3;
         self.currentQueryObject.maxOffset = @(maxOffset);
         [self.responseObjects addObjectsFromArray:objects];
         [self.collectionView reloadData];
+        
+        // Check if more query is needed
         [self performSearchIfNeeded];
+        
     } failure:^(NSError *error) {
         @strongify(self);
         
+        // Roll-back the offset
         NSInteger lastSuccessOffset = self.responseObjects.count - self.currentQueryObject.perPage.integerValue;
         self.currentQueryObject.offset = @(lastSuccessOffset);
 
@@ -121,12 +145,16 @@ static NSUInteger const kNumberOfColumns = 3;
 {
     [self checkNumberOfObjectsToLoad];
     
+    // Only perform search when scrolls to the bottom
     CGFloat maxY = self.collectionView.contentOffset.y + CGRectGetHeight(self.collectionView.frame);
     if (maxY >= self.collectionView.contentSize.height) {
         [self performSearchIfNeeded];
     }
 }
 
+/**
+ *  Check number of objects needed to fill the scroll view
+ */
 - (void)checkNumberOfObjectsToLoad
 {
     UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
@@ -143,6 +171,9 @@ static NSUInteger const kNumberOfColumns = 3;
 
 #pragma mark - Collection View
 
+/**
+ *  Update the cell size to fit the `sectionInset` and `minimumInteritemSpacing` set in the storyboard.
+ */
 - (void)updateCollectionViewLayout
 {
     UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
