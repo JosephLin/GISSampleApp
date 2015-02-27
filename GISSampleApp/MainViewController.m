@@ -51,6 +51,7 @@ static NSUInteger const kNumberOfColumns = 3;
     [self checkNumberOfObjectsToLoad];
 }
 
+
 #pragma mark - Search
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
@@ -96,6 +97,9 @@ static NSUInteger const kNumberOfColumns = 3;
         [self presentViewController:alert animated:YES completion:nil];
     }];
 }
+
+
+#pragma mark - Scrolling
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
