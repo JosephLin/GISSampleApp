@@ -16,9 +16,6 @@ static NSString * const GISBaseURLString = @"http://ajax.googleapis.com";
 static NSString * const GISBasePath = @"ajax/services/search/images";
 
 
-//ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey
-
-
 @interface GISAPIManager ()
 @property (nonatomic) AFHTTPRequestOperationManager *requestManager;
 @end
@@ -89,21 +86,3 @@ static NSString * const GISBasePath = @"ajax/services/search/images";
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

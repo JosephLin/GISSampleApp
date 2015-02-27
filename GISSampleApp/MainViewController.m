@@ -44,6 +44,9 @@ static NSUInteger const kNumberOfColumns = 3;
     [self updateCollectionViewLayout];
 }
 
+
+#pragma mark - Setter
+
 - (void)setCurrentQueryObject:(GISQueryObject *)currentQueryObject
 {
     if (_currentQueryObject) {

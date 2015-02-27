@@ -8,6 +8,7 @@
 
 #import "NSDictionary+Validation.h"
 
+
 @implementation NSDictionary (Validation)
 
 - (id)objectForKey:(id)aKey expectedClass:(Class)expectedClass
