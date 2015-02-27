@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "GISResponseObject.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIImage+Placeholder.h"
 
 
 @interface DetailViewController ()
@@ -22,7 +23,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
     [self reloadUI];
 }
 
@@ -30,11 +35,7 @@
 {
     if (self.responseObject.URLString) {
         NSURL *URL = [NSURL URLWithString:self.responseObject.URLString];
-        [self.imageView setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    }
-    else {
-        [self.imageView cancelImageRequestOperation];
-        self.imageView.image = nil;
+        [self.imageView setImageWithURL:URL placeholderImage:[UIImage placeholderImageNamed:@"placeholder" size:self.imageView.frame.size]];
     }
     
     self.title = self.responseObject.titleNoFormatting;

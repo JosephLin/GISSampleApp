@@ -9,6 +9,7 @@
 #import "GridCell.h"
 #import "GISResponseObject.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIImage+Placeholder.h"
 
 
 @interface GridCell ()
@@ -23,11 +24,7 @@
     _responseObject = responseObject;
     if (responseObject.thumbURLString) {
         NSURL *URL = [NSURL URLWithString:responseObject.thumbURLString];
-        [self.imageView setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    }
-    else {
-        [self.imageView cancelImageRequestOperation];
-        self.imageView.image = [UIImage imageNamed:@"placeholder"];
+        [self.imageView setImageWithURL:URL placeholderImage:[UIImage placeholderImageNamed:@"placeholder" size:self.imageView.frame.size]];
     }
 }
 
@@ -35,7 +32,7 @@
 {
     [super prepareForReuse];
     [self.imageView cancelImageRequestOperation];
-    self.imageView.image = [UIImage imageNamed:@"placeholder"];
+    self.imageView.image = nil;
 }
 
 @end
