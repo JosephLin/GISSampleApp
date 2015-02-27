@@ -68,11 +68,12 @@ static NSString * const GISBasePath = @"ajax/services/search/images";
             NSDictionary *responseData = responseObject[@"responseData"];
             NSArray *results = responseData[@"results"];
             NSDictionary *cursor = responseData[@"cursor"];
-            NSString *resultCount = cursor[@"resultCount"];
+            NSArray *pages = cursor[@"pages"];
+            NSString *maxOffset = [pages.lastObject objectForKey:@"start"];
             NSString *currentPageIndex = cursor[@"currentPageIndex"];
             
             NSArray *objects = [GISResponseObject objectsWithArray:results];
-            if (success) success(resultCount.integerValue, currentPageIndex.integerValue, objects);
+            if (success) success(maxOffset.integerValue, currentPageIndex.integerValue, objects);
         }
         else {
             NSString *responseDetails = responseObject[@"responseDetails"];

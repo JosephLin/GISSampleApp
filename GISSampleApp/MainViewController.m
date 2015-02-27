@@ -83,8 +83,8 @@ static NSUInteger const kNumberOfColumns = 3;
     if (numberOfLoadedItems < self.numberOfObjectsToLoad) {
 
         NSInteger currentOffset = self.currentQueryObject.offset.integerValue;
-        if (currentOffset < numberOfLoadedItems) {
-            self.currentQueryObject.offset = [NSString stringWithFormat:@"%lu", (unsigned long)numberOfLoadedItems];
+        if (currentOffset < numberOfLoadedItems && (self.currentQueryObject.maxOffset && numberOfLoadedItems <= self.currentQueryObject.maxOffset.integerValue)) {
+            self.currentQueryObject.offset = @(numberOfLoadedItems);
             [self performSearch];
         }
     }
@@ -93,15 +93,19 @@ static NSUInteger const kNumberOfColumns = 3;
 - (void)performSearch
 {
     @weakify(self);
-    [[GISAPIManager sharedInstance] query:self.currentQueryObject success:^(NSInteger total, NSInteger currentPage, NSArray *objects) {
+    [[GISAPIManager sharedInstance] query:self.currentQueryObject success:^(NSInteger maxOffset, NSInteger currentPage, NSArray *objects) {
         @strongify(self);
         
+        self.currentQueryObject.maxOffset = @(maxOffset);
         [self.responseObjects addObjectsFromArray:objects];
         [self.collectionView reloadData];
         [self performSearchIfNeeded];
     } failure:^(NSError *error) {
         @strongify(self);
         
+        NSInteger lastSuccessOffset = self.responseObjects.count - self.currentQueryObject.perPage.integerValue;
+        self.currentQueryObject.offset = @(lastSuccessOffset);
+
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
@@ -114,6 +118,11 @@ static NSUInteger const kNumberOfColumns = 3;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self checkNumberOfObjectsToLoad];
+    
+    CGFloat maxY = self.collectionView.contentOffset.y + CGRectGetHeight(self.collectionView.frame);
+    if (maxY >= self.collectionView.contentSize.height) {
+        [self performSearchIfNeeded];
+    }
 }
 
 - (void)checkNumberOfObjectsToLoad
@@ -126,7 +135,6 @@ static NSUInteger const kNumberOfColumns = 3;
     
     if (self.numberOfObjectsToLoad < numberOfObjectsNeeded) {
         self.numberOfObjectsToLoad = numberOfObjectsNeeded;
-        [self performSearchIfNeeded];
     }
 }
 

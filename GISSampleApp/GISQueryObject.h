@@ -24,8 +24,9 @@
 @property (nonatomic) NSString *imageType;
 @property (nonatomic) NSString *safe;
 
-@property (nonatomic) NSString *perPage;
-@property (nonatomic) NSString *offset;
+@property (nonatomic) NSNumber *perPage;
+@property (nonatomic) NSNumber *offset;
+@property (nonatomic) NSNumber *maxOffset;
 
 @property (nonatomic) NSString *userIP;
 

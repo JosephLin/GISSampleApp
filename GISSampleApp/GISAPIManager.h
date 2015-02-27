@@ -10,7 +10,7 @@
 
 @class GISQueryObject;
 
-typedef void(^GISAPISuccessBlock)(NSInteger total, NSInteger currentPage, NSArray *objects);
+typedef void(^GISAPISuccessBlock)(NSInteger maxOffset, NSInteger currentPage, NSArray *objects);
 typedef void(^GISAPIFailureBlock)(NSError *error);
 
 extern NSString * const GISErrorDomain;

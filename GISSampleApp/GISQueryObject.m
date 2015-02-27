@@ -43,7 +43,12 @@
     [[GISQueryObject keyMapper] enumerateKeysAndObjectsUsingBlock:^(id key, id serverKey, BOOL *stop) {
         id value = [self valueForKey:key];
         if (value) {
-            dict[serverKey] = value;
+            if ([value isKindOfClass:[NSString class]]) {
+                dict[serverKey] = value;
+            }
+            else if ([value isKindOfClass:[NSNumber class]]) {
+                dict[serverKey] = [value stringValue];
+            }
         }
     }];
     return dict;
@@ -53,7 +58,7 @@
 {
     GISQueryObject *object = [self new];
     object.version = @"1.0";
-    object.perPage = @"8";
+    object.perPage = @8;
     return object;
 }
 
