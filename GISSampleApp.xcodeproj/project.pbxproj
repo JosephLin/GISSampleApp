@@ -14,7 +14,7 @@
 		7CE9DB671A9EBADB00C1D7FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9DB661A9EBADB00C1D7FE /* Images.xcassets */; };
 		7CE9DB6A1A9EBADB00C1D7FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9DB681A9EBADB00C1D7FE /* LaunchScreen.xib */; };
 		7CE9DB761A9EBADB00C1D7FE /* GISSampleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB751A9EBADB00C1D7FE /* GISSampleAppTests.m */; };
-		7CE9DB811A9EBFF300C1D7FE /* GISManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB801A9EBFF300C1D7FE /* GISManager.m */; };
+		7CE9DB811A9EBFF300C1D7FE /* GISAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB801A9EBFF300C1D7FE /* GISAPIManager.m */; };
 		7CE9DB841A9EC27900C1D7FE /* GISQueryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB831A9EC27900C1D7FE /* GISQueryObject.m */; };
 		7CE9DB871A9ECA4A00C1D7FE /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB861A9ECA4A00C1D7FE /* GridCell.m */; };
 		7CE9DB8A1A9ECABC00C1D7FE /* GISResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9DB891A9ECABC00C1D7FE /* GISResponseObject.m */; };
@@ -49,8 +49,8 @@
 		7CE9DB6F1A9EBADB00C1D7FE /* GISSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GISSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE9DB741A9EBADB00C1D7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE9DB751A9EBADB00C1D7FE /* GISSampleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GISSampleAppTests.m; sourceTree = "<group>"; };
-		7CE9DB7F1A9EBFF300C1D7FE /* GISManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GISManager.h; sourceTree = "<group>"; };
-		7CE9DB801A9EBFF300C1D7FE /* GISManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GISManager.m; sourceTree = "<group>"; };
+		7CE9DB7F1A9EBFF300C1D7FE /* GISAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GISAPIManager.h; sourceTree = "<group>"; };
+		7CE9DB801A9EBFF300C1D7FE /* GISAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GISAPIManager.m; sourceTree = "<group>"; };
 		7CE9DB821A9EC27900C1D7FE /* GISQueryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GISQueryObject.h; sourceTree = "<group>"; };
 		7CE9DB831A9EC27900C1D7FE /* GISQueryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GISQueryObject.m; sourceTree = "<group>"; };
 		7CE9DB851A9ECA4A00C1D7FE /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCell.h; sourceTree = "<group>"; };
@@ -103,8 +103,8 @@
 		7C48658B1AA012D000250850 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				7CE9DB7F1A9EBFF300C1D7FE /* GISManager.h */,
-				7CE9DB801A9EBFF300C1D7FE /* GISManager.m */,
+				7CE9DB7F1A9EBFF300C1D7FE /* GISAPIManager.h */,
+				7CE9DB801A9EBFF300C1D7FE /* GISAPIManager.m */,
 				7CE9DB821A9EC27900C1D7FE /* GISQueryObject.h */,
 				7CE9DB831A9EC27900C1D7FE /* GISQueryObject.m */,
 				7CE9DB881A9ECABC00C1D7FE /* GISResponseObject.h */,
@@ -338,7 +338,7 @@
 				7CE9DB8A1A9ECABC00C1D7FE /* GISResponseObject.m in Sources */,
 				7CE9DB871A9ECA4A00C1D7FE /* GridCell.m in Sources */,
 				7CE9DB621A9EBADB00C1D7FE /* MainViewController.m in Sources */,
-				7CE9DB811A9EBFF300C1D7FE /* GISManager.m in Sources */,
+				7CE9DB811A9EBFF300C1D7FE /* GISAPIManager.m in Sources */,
 				7CE9DB5F1A9EBADB00C1D7FE /* AppDelegate.m in Sources */,
 				7CE9DB5C1A9EBADB00C1D7FE /* main.m in Sources */,
 			);

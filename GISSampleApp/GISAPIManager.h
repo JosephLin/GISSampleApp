@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, GISErrorCode) {
 };
 
 
-@interface GISManager : NSObject
+@interface GISAPIManager : NSObject
 
 + (instancetype)sharedInstance;
 

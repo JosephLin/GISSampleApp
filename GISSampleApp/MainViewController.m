@@ -8,7 +8,7 @@
 
 #import "MainViewController.h"
 #import "DetailViewController.h"
-#import "GISManager.h"
+#import "GISAPIManager.h"
 #import "GISQueryObject.h"
 #import "GISResponseObject.h"
 #import "GridCell.h"
@@ -24,7 +24,6 @@ static NSUInteger const kNumberOfColumns = 3;
 @property (nonatomic)       NSMutableArray *queryHistory;
 @property (nonatomic)       GISQueryObject *currentQueryObject;
 @property (nonatomic)       NSInteger numberOfObjectsToLoad;
-@property (nonatomic)       NSInteger currentPage;
 @end
 
 
@@ -83,7 +82,7 @@ static NSUInteger const kNumberOfColumns = 3;
 - (void)performSearch
 {
     @weakify(self);
-    [[GISManager sharedInstance] query:self.currentQueryObject success:^(NSInteger total, NSInteger currentPage, NSArray *objects) {
+    [[GISAPIManager sharedInstance] query:self.currentQueryObject success:^(NSInteger total, NSInteger currentPage, NSArray *objects) {
         @strongify(self);
         
         [self.responseObjects addObjectsFromArray:objects];

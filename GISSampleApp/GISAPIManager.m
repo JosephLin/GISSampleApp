@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Joseph Lin. All rights reserved.
 //
 
-#import "GISManager.h"
+#import "GISAPIManager.h"
 #import "AFNetworking.h"
 #import "GISQueryObject.h"
 #import "GISResponseObject.h"
@@ -19,12 +19,12 @@ static NSString * const GISBasePath = @"ajax/services/search/images";
 //ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey
 
 
-@interface GISManager ()
+@interface GISAPIManager ()
 @property (nonatomic) AFHTTPRequestOperationManager *requestManager;
 @end
 
 
-@implementation GISManager
+@implementation GISAPIManager
 
 + (instancetype)sharedInstance
 {
