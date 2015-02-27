@@ -17,9 +17,10 @@
 static NSUInteger const kNumberOfColumns = 3;
 
 
-@interface MainViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
+@interface MainViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic)       NSMutableArray *responseObjects;
 @property (nonatomic)       NSMutableArray *queryHistory;
 @property (nonatomic)       GISQueryObject *currentQueryObject;
@@ -45,7 +46,12 @@ static NSUInteger const kNumberOfColumns = 3;
 
 - (void)setCurrentQueryObject:(GISQueryObject *)currentQueryObject
 {
+    if (_currentQueryObject) {
+        [self.queryHistory addObject:_currentQueryObject.query];
+    }
+    
     _currentQueryObject = currentQueryObject;
+    
     [self.responseObjects removeAllObjects];
     [self.collectionView reloadData];
     [self checkNumberOfObjectsToLoad];
@@ -61,6 +67,7 @@ static NSUInteger const kNumberOfColumns = 3;
 
 - (IBAction)searchButtonTapped:(id)sender
 {
+    [self hideTableView];
     [self.searchBar resignFirstResponder];
     NSString *text = self.searchBar.text;
     self.currentQueryObject = [GISQueryObject objectWithQuery:text];
@@ -164,6 +171,59 @@ static NSUInteger const kNumberOfColumns = 3;
     NSParameterAssert([controller isKindOfClass:[DetailViewController class]]);
     
     controller.responseObject = sender;
+}
+
+
+#pragma mark - Bookmark
+
+- (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar
+{
+    if (!self.tableView) {
+        [self showTableView];
+    }
+    else {
+        [self hideTableView];
+    }
+}
+
+- (void)showTableView
+{
+    if (!self.tableView) {
+        UITableView *tableView = [[UITableView alloc] initWithFrame:self.collectionView.frame style:UITableViewStylePlain];
+        tableView.dataSource = self;
+        tableView.delegate = self;
+        [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+        [self.view addSubview:tableView];
+        self.tableView = tableView;
+    }
+}
+
+- (void)hideTableView
+{
+    if (self.tableView) {
+        [self.tableView removeFromSuperview];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.queryHistory.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *query = self.queryHistory[self.queryHistory.count - indexPath.row - 1];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+    cell.textLabel.text = query;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *query = self.queryHistory[self.queryHistory.count - indexPath.row - 1];
+    self.searchBar.text = query;
+    [self searchButtonTapped:nil];
 }
 
 @end
