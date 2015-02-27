@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const GISErrorDomain;
+@class GISQueryObject;
+
 typedef void(^GISCompletionBlock)(BOOL success, NSArray *objects, NSError *error);
 
+extern NSString * const GISErrorDomain;
 typedef NS_ENUM(NSInteger, GISErrorCode) {
     GISErrorCodeInvalidRequest = 1001,
     GISErrorCodeInvalidResponse = 1002,
@@ -21,6 +23,6 @@ typedef NS_ENUM(NSInteger, GISErrorCode) {
 
 + (instancetype)sharedInstance;
 
-- (void)query:(NSString *)query completion:(GISCompletionBlock)completion;
+- (void)query:(GISQueryObject *)queryObject completion:(GISCompletionBlock)completion;
 
 @end

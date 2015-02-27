@@ -18,11 +18,11 @@
 
 @implementation GridCell
 
-- (void)setObject:(GISResponseObject *)object
+- (void)setResponseObject:(GISResponseObject *)responseObject
 {
-    _object = object;
-    if (object.thumbURLString) {
-        NSURL *URL = [NSURL URLWithString:object.thumbURLString];
+    _responseObject = responseObject;
+    if (responseObject.thumbURLString) {
+        NSURL *URL = [NSURL URLWithString:responseObject.thumbURLString];
         [self.imageView setImageWithURL:URL];
     }
     else {

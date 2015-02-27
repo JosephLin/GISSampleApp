@@ -8,6 +8,7 @@
 
 #import "GISManager.h"
 #import "AFNetworking.h"
+#import "GISQueryObject.h"
 #import "GISResponseObject.h"
 
 NSString * const GISErrorDomain = @"GISErrorDomain";
@@ -43,20 +44,15 @@ static NSString * const GISBasePath = @"ajax/services/search/images";
     return _requestManager;
 }
 
-- (void)query:(NSString *)query completion:(GISCompletionBlock)completion
+- (void)query:(GISQueryObject *)queryObject completion:(GISCompletionBlock)completion
 {
-    if (!query) {
+    if (!queryObject.query) {
         NSError *error = [NSError errorWithDomain:GISErrorDomain code:GISErrorCodeInvalidRequest userInfo:@{NSLocalizedDescriptionKey:@"Empty query"}];
         if (completion) completion(NO, nil, error);
         return;
     }
     
-    NSDictionary *params = @{
-                             @"q" : query,
-                             @"v" : @"1.0",
-                             };
-    
-    
+    NSDictionary *params = [queryObject JSONDictionary];
     [self.requestManager GET:GISBasePath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         /*

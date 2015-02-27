@@ -28,8 +28,8 @@
 
 - (void)reloadUI
 {
-    if (self.object.URLString) {
-        NSURL *URL = [NSURL URLWithString:self.object.URLString];
+    if (self.responseObject.URLString) {
+        NSURL *URL = [NSURL URLWithString:self.responseObject.URLString];
         [self.imageView setImageWithURL:URL];
     }
     else {
@@ -37,8 +37,8 @@
         self.imageView.image = nil;
     }
     
-    self.title = self.object.titleNoFormatting;
-    self.textLabel.text = self.object.contentNoFormatting;
+    self.title = self.responseObject.titleNoFormatting;
+    self.textLabel.text = self.responseObject.contentNoFormatting;
 }
 
 @end

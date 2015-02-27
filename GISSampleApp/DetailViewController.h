@@ -12,6 +12,6 @@
 
 @interface DetailViewController : UIViewController
 
-@property (nonatomic, strong) GISResponseObject *object;
+@property (nonatomic, strong) GISResponseObject *responseObject;
 
 @end

@@ -20,7 +20,7 @@
             </objects>
             <point key="canvasLocation" x="378" y="81"/>
         </scene>
-        <!--Image Search-->
+        <!--GIS Sample App-->
         <scene sceneID="Wce-85-wp8">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="0Xo-ae-2QA" customClass="MainViewController" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                                     <outlet property="delegate" destination="0Xo-ae-2QA" id="32b-yd-v7m"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-uE-WVy">
+                            <searchBar contentMode="redraw" placeholder="Seach Image" showsBookmarkButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-uE-WVy">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="rc0-mZ-euh"/>
@@ -86,7 +86,9 @@
                             <constraint firstItem="Oth-uE-WVy" firstAttribute="leading" secondItem="ldy-hp-EqH" secondAttribute="leading" id="t98-jV-6MW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Image Search" id="eVh-A3-5Xw"/>
+                    <navigationItem key="navigationItem" title="GIS Sample App" id="eVh-A3-5Xw">
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="es9-eI-aQL"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="nVb-vE-8Lk" id="v8P-Wy-ehT"/>
                         <segue destination="vjp-Wo-NbB" kind="show" identifier="DetailSegue" id="rIw-ny-vha"/>

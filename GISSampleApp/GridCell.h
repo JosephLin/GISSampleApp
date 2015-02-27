@@ -12,6 +12,6 @@
 
 @interface GridCell : UICollectionViewCell
 
-@property (nonatomic, strong) GISResponseObject *object;
+@property (nonatomic, strong) GISResponseObject *responseObject;
 
 @end
