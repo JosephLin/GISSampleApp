@@ -30,7 +30,7 @@
 {
     if (self.responseObject.URLString) {
         NSURL *URL = [NSURL URLWithString:self.responseObject.URLString];
-        [self.imageView setImageWithURL:URL];
+        [self.imageView setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     else {
         [self.imageView cancelImageRequestOperation];

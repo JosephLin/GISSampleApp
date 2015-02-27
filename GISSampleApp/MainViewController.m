@@ -140,6 +140,7 @@ static NSUInteger const kNumberOfColumns = 3;
     
     CGFloat viewWidth = CGRectGetWidth(self.collectionView.frame);
     CGFloat size = (viewWidth - layout.sectionInset.left - layout.sectionInset.right - (kNumberOfColumns - 1) * layout.minimumInteritemSpacing) / kNumberOfColumns;
+    size = floor(size);
     layout.itemSize = CGSizeMake(size, size);
 
     self.collectionView.collectionViewLayout = layout;

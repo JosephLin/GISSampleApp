@@ -23,11 +23,11 @@
     _responseObject = responseObject;
     if (responseObject.thumbURLString) {
         NSURL *URL = [NSURL URLWithString:responseObject.thumbURLString];
-        [self.imageView setImageWithURL:URL];
+        [self.imageView setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     else {
         [self.imageView cancelImageRequestOperation];
-        self.imageView.image = nil;
+        self.imageView.image = [UIImage imageNamed:@"placeholder"];
     }
 }
 
@@ -35,7 +35,7 @@
 {
     [super prepareForReuse];
     [self.imageView cancelImageRequestOperation];
-    self.imageView.image = nil;
+    self.imageView.image = [UIImage imageNamed:@"placeholder"];
 }
 
 @end

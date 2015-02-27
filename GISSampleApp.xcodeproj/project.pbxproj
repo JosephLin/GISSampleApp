@@ -119,10 +119,10 @@
 				7CE9DB631A9EBADB00C1D7FE /* Main.storyboard */,
 				7CE9DB601A9EBADB00C1D7FE /* MainViewController.h */,
 				7CE9DB611A9EBADB00C1D7FE /* MainViewController.m */,
-				7CE9DB8E1A9ED77700C1D7FE /* DetailViewController.h */,
-				7CE9DB8F1A9ED77700C1D7FE /* DetailViewController.m */,
 				7CE9DB851A9ECA4A00C1D7FE /* GridCell.h */,
 				7CE9DB861A9ECA4A00C1D7FE /* GridCell.m */,
+				7CE9DB8E1A9ED77700C1D7FE /* DetailViewController.h */,
+				7CE9DB8F1A9ED77700C1D7FE /* DetailViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
