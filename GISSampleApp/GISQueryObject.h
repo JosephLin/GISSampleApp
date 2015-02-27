@@ -16,15 +16,15 @@
 @property (nonatomic) NSString *version;
 
 //TODO:
-//@property (nonatomic) NSString *asFileType;
-//@property (nonatomic) NSString *asRights;
-//@property (nonatomic) NSString *asSiteSearch;
-//@property (nonatomic) NSString *hostLanguage;
-//@property (nonatomic) NSString *imageColorization;
-//@property (nonatomic) NSString *imageColor;
-//@property (nonatomic) NSString *imageSize;
-//@property (nonatomic) NSString *imageType;
-//@property (nonatomic) NSString *safe;
+@property (nonatomic) NSString *asFileType;
+@property (nonatomic) NSString *asRights;
+@property (nonatomic) NSString *asSiteSearch;
+@property (nonatomic) NSString *hostLanguage;
+@property (nonatomic) NSString *imageColorization;
+@property (nonatomic) NSString *imageColor;
+@property (nonatomic) NSString *imageSize;
+@property (nonatomic) NSString *imageType;
+@property (nonatomic) NSString *safe;
 
 @property (nonatomic) NSNumber *perPage;
 @property (nonatomic) NSNumber *offset;
