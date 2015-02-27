@@ -17,8 +17,10 @@
 
 @interface MainViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic)       NSMutableArray *responseObjects;
 @property (nonatomic)       NSMutableArray *queryHistory;
+@property (nonatomic)       GISQueryObject *currentQueryObject;
 @end
 
 
@@ -34,20 +36,31 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSString *text = searchBar.text;
+    [self performSearch];
+}
+
+- (IBAction)searchButtonTapped:(id)sender
+{
+    [self performSearch];
+}
+
+- (void)performSearch
+{
+    [self.searchBar resignFirstResponder];
+    NSString *text = self.searchBar.text;
     GISQueryObject *queryObject = [GISQueryObject objectWithQuery:text];
     
     @weakify(self);
     [[GISManager sharedInstance] query:queryObject completion:^(BOOL success, NSArray *objects, NSError *error) {
         @strongify(self);
-
+        
         if (!success) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
             [self presentViewController:alert animated:YES completion:nil];
             return;
         }
-
+        
         [self.responseObjects addObjectsFromArray:objects];
         [self.collectionView reloadData];
     }];

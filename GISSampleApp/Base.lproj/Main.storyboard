@@ -87,10 +87,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="GIS Sample App" id="eVh-A3-5Xw">
-                        <barButtonItem key="rightBarButtonItem" title="Search" id="es9-eI-aQL"/>
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="es9-eI-aQL">
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="0Xo-ae-2QA" id="QPv-yv-Uxf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="nVb-vE-8Lk" id="v8P-Wy-ehT"/>
+                        <outlet property="searchBar" destination="Oth-uE-WVy" id="Mzz-1v-WN0"/>
                         <segue destination="vjp-Wo-NbB" kind="show" identifier="DetailSegue" id="rIw-ny-vha"/>
                     </connections>
                 </viewController>
