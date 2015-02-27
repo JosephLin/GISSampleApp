@@ -88,7 +88,13 @@ static NSUInteger const kNumberOfColumns = 3;
     [self.searchBar resignFirstResponder];
     NSString *text = self.searchBar.text;
     self.currentQueryObject = [GISQueryObject objectWithQuery:text];
-    [self performSearch];
+    [self getGlobalIP:^(BOOL success, NSString *IP, NSError *error) {
+        if (IP) {
+            self.currentQueryObject.userIP = IP;
+        }
+        // Always perform search, even if the IP request fails.
+        [self performSearch];
+    }];
 }
 
 - (void)performSearchIfNeeded
@@ -135,6 +141,23 @@ static NSUInteger const kNumberOfColumns = 3;
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
+    }];
+}
+
+
+#pragma mark - Global IP
+
+- (void)getGlobalIP:(void(^)(BOOL success, NSString *IP, NSError *error))completion
+{
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://curlmyip.com"]];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (data) {
+            NSString *ip = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            if (completion) completion(YES, ip, nil);
+        }
+        else {
+            if (completion) completion(NO, nil, connectionError);
+        }
     }];
 }
 
